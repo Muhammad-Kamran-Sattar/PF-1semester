@@ -1,6 +1,0 @@
-DOCTYPE!
-<html.h>
-<body>
-<p>Kamran the king of _i_d_stan.</p>
-</body>
-</html>
