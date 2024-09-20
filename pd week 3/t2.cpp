@@ -1,0 +1,18 @@
+#include <iostream>
+using namespace std;
+main()
+{
+  cout<<"number of minutes:";
+  int min;
+  cin>>min;
+  int s;
+  s=min*60;
+  cout<<"frames per second:";
+  int f;
+  cin>>f;
+  int n;
+  n=n*f;
+cout<<"total number of frames :"<<n;
+
+}
+   
