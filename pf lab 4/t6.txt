@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+void inches( int l);
+main()
+{
+inches(x);
+
+}
+
+void rubiks( int l)
+{
+ 
+ cout<< "Enter the side lenght of the rubiks cube:";
+
+ cin>>l;
+ int sticker;
+ sticker=l*6;
+ cout<<"Numberfs of stickers needed: "<<sticker<<endl;
+}
