@@ -4,6 +4,16 @@ using namespace std;
 #include<conio.h>
 void maze();
 void name();
+void pill();
+void pillerase();
+void powerincrement1();
+void scoreboard();
+void powerincrement2();
+void scoreboard2();
+void moveplayerdown();
+void moveplayer2down(); 
+void moveplayerup();
+void moveplayer2up();
 char getCharAtxy(short int x, short int y);
 void singleplayer();
 void multiplayer();
@@ -27,7 +37,8 @@ void enemymove2();
 void eraseplayer2();
 void gotoxy(int x, int y);
 int ex1=1, ey1=1,ex2=22,ey2=2,ey3=1,ex3=1;
-int px=35,py=36,px2=30,py2=36;
+int px=35,py=36,px2=50,py2=36;
+int score=0,score2=0;
 int main()
 {
  system("cls");   
@@ -39,6 +50,8 @@ cout<<"Single player option 1"<<endl;
 gotoxy(19, 20);
 cout<<"Multi player option 2"<<endl;
 gotoxy(19, 21);
+cout<<"For exit........option 3"<<endl;
+gotoxy(19, 22);
 cout<<"Your option.....";
 cin>>option;
  if(option==1)
@@ -48,6 +61,10 @@ cin>>option;
  else if(option==2)
  {
   multiplayer();
+ }else if(option==3)
+ {
+ system("cls"); 
+ system("exit()");
  }
   else 
   {
@@ -78,6 +95,7 @@ void singleplayer()
 
  system("cls");   
  maze();
+ pill();
  player();
   while(true)
  {
@@ -91,10 +109,21 @@ void singleplayer()
    {
      moveplayerright();
    }
+      if (GetAsyncKeyState(VK_UP))
+   {
+     moveplayerup();
+   }
+         if (GetAsyncKeyState(VK_DOWN))
+   {
+     moveplayerdown();
+   }
  enemymove();
  enemymove3();
  enemymove2();
+ powerincrement1();
   Sleep(50);
+
+
  }
 }
 void multiplayer()
@@ -102,6 +131,7 @@ void multiplayer()
 
  system("cls");   
  maze();
+ pill();
  player();
  player2();
   while(true)
@@ -116,18 +146,36 @@ void multiplayer()
    {
      moveplayerright();
    }
-   if(GetAsyncKeyState(VK_NUMPAD1))
+    else if (GetAsyncKeyState(VK_UP))
+   {
+     moveplayerup();
+   }
+    else if (GetAsyncKeyState(VK_DOWN))
+   {
+     moveplayerdown();
+   }
+   else if (GetAsyncKeyState(VK_NUMPAD5))
+   {
+     moveplayer2up();
+   }
+    else if (GetAsyncKeyState(VK_NUMPAD2))
+   {
+     moveplayer2down();
+   }
+   else if(GetAsyncKeyState(VK_NUMPAD1))
    {
    moveplayer2left();
    }
-      if(GetAsyncKeyState(VK_NUMPAD3))
+    else if(GetAsyncKeyState(VK_NUMPAD3))
    {
    moveplayer2right();
    }
  enemymove();
  enemymove3();
  enemymove2();
+ powerincrement2();
   Sleep(50);
+ 
  }
 }
 
@@ -247,7 +295,7 @@ void gotoxy(int x, int y)
     gotoxy(px2, py2);
     cout << "             " ;
     gotoxy(px2, py2+1);
-    cout << "              " ;
+    cout << "             " ;
     gotoxy(px2, py2+2);
     cout << "              " ;
     gotoxy(px2, py2+3);
@@ -256,6 +304,7 @@ void gotoxy(int x, int y)
     cout << "              " ;
     gotoxy(px2, py2+5);
     cout << "              " ;
+
 }
    void moveplayer2left()
    {
@@ -397,12 +446,41 @@ void moveplayerleft() {
         player();
     }
 }
+void moveplayerup() {
+    if ( getCharAtxy(px-1 , py-1) == ' ') {
+        eraseplayer();
+        py =py- 1;
+        player();
+    }
+}
+void moveplayer2up() {
+    if ( getCharAtxy(px2-1 , py2-1) == ' ') {
+        eraseplayer2();
+        py2 =py2- 1;
+        player2();
+    }
+}
 
 void moveplayerright() {
     if (  getCharAtxy(px + 15, py) == ' ') {
         eraseplayer();
         px += 1;
         player();
+    }
+}
+
+void moveplayerdown() {
+    if (  getCharAtxy(px, py+15&&py<=36 ) == ' ') {
+        eraseplayer();
+        py += 1;
+        player();
+    }
+}
+void moveplayer2down() {
+    if (  getCharAtxy(px2, py2+15&&py2<=36 ) == ' ') {
+        eraseplayer2();
+        py2 += 1;
+        player2();
     }
 }
 
@@ -459,4 +537,54 @@ COORD coordBufSize;
 coordBufSize.X = 1;
 coordBufSize.Y = 1;
 return ReadConsoleOutput(GetStdHandle(STD_OUTPUT_HANDLE), &ci, coordBufSize, xy, &rect) ? ci.Char.AsciiChar: ' ';
+}
+
+
+void powerincrement1() {
+    // Check if Player 1's position is where "P" is located
+    if (px == 19 && py == 16) {
+        score += 1;              // Increase the score
+        pillerase();            // Erase the "P"
+        pill();                 // Place a new "P" (if needed)
+        scoreboard();           // Update the scoreboard display
+    }
+}
+void scoreboard() {
+    gotoxy(120, 5);
+    cout << "Player 1 score: " << score;
+
+}
+void scoreboard2() {
+    gotoxy(120, 5);
+    cout << "Player 1 score: " << score;
+    gotoxy(120, 6);
+    cout << "Player 2 score: " << score2;
+}
+void powerincrement2() {
+    
+    if (px==19&&py==16) {
+       score += 1;              
+        pillerase();            
+        pill();                 
+        scoreboard2();}
+        else if(px2 == 19 && py2 == 16)
+        {
+     score2 += 1;              
+        pillerase();            
+        pill();                 
+        scoreboard2();
+        }           
+    
+}
+void pill()
+{
+  gotoxy(19, 16);
+  cout<<"P";
+  
+}
+void pillerase()
+{
+  gotoxy(19, 16);
+  cout<<" ";
+  
 }

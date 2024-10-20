@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/30206f7f5a.js" ></script>
+    <link rel="icon" type="img/png" href="travel.png">
+    <title>Travel Guide</title>
+    <style>
+        body
+        {
+            margin: 0px;
+            background:black;
+            background-repeat: no-repeat;
+            background-position: center ;
+            background-attachment: fixed;
+            background-size: cover;
+        }
+        main
+         {
+           margin-left: 20px;
+           margin-right: 20px;
+
+        }
+        h2
+        {
+            text-align: center;
+            color:hsl(210, 7%, 89%);
+            padding: right 10px;           
+            display: block;
+            float: left;
+            font-size: large;
+        }
+        .navbar ul
+        {
+         list-style-type:none;
+         background-color: hsl(0, 4%, 11%);
+         padding:0px;
+         margin:0px;
+         
+         overflow: hidden;
+        }
+        .navbar a
+        {
+         color: white;
+         text-decoration: none;
+         padding: 15px;
+         display: block;
+         text-align: center;
+         
+        }
+
+       
+        .navbar a:hover
+        {
+            background-color: hsl(0, 2%, 24%);
+        }
+        .navbar li
+        {
+             float: right;     
+         }
+         footer
+         {
+            width: 100%;
+            position: absolute;
+            background-color: hsl(0, 4%, 11%);
+            color: #fff;
+            padding: 80px 0 30px;
+            border-top-left-radius: 125px ; 
+            font-size: 15px;
+            line-height: 15px;           
+        }
+        .row
+        {
+            width: 75%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: space-between;
+        }
+        .col
+        {
+            flex-basis: 15%;
+            padding: 10px;
+        }
+        .logo
+        {
+            width: 80px;
+            margin-bottom: 30px;
+        }
+        .col h3
+        {
+        width: fit-content;
+        margin: 40px;
+        position: relative;
+        }
+        .email-id
+        {
+            width: fit-content;
+            border-bottom: 1px,solid #ccc;
+            margin: 20px,0;
+        }
+        ul li
+        {
+            list-style: none;
+            margin-bottom: 12px;
+
+        }
+        ul li a
+        {
+            text-decoration: none;
+            color: #fff;
+        }
+        form
+        {
+            padding-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 50px;
+        }
+        form .fa
+        {
+         font-size: 18px;
+         margin-right: 10px;
+
+        }
+        form input{
+            width: 100%;
+            background: transparent;
+            color: #ccc;
+            border: 0;
+            outline: none;
+        }
+        form button
+        {
+           background: #ccc;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+        form button .fa
+        {
+            font-size: 20px;
+            color: #fff;
+        }
+        .social-icons .fa
+        {
+            width: 40px;
+            height:40px ;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-size: 20px;
+            color: #000;
+            background: #fff;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        hr
+        {
+            width: 90%;
+            border: 0;
+            border-bottom: 1px solid #ccc;
+            margin: 20px auto;
+        }
+        .copyright{
+            text-align: center;
+        }
+        .underline
+        {
+            width: 100%;
+            height: 5px;
+            background: #767676;
+            border-radius:3px ;
+            position: absolute;
+            top: 25px;
+            left: 0;
+            overflow: hidden;
+        }
+        .underline span
+        {  
+            width: 15px;
+            height: 100%;
+            background:#fff;
+            border-radius:3px ;
+            position: absolute;
+            top: 0;
+            left: 10px;
+            animation: moving 2s linear infinite;
+
+        }
+@keyframes moving{
+    0%
+    {
+        left: -20px;
+    }
+    100%
+    {
+        left: 100%;
+    }
+}
+.back-video{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+@media (min-aspect-ratio:16/9)
+{
+    .back-video{
+        width: 100%;
+        height: auto;
+    }
+}
+@media (max-aspect-ratio:16/9)
+{
+    .back-video{
+        width: auto;
+        height: 100%;
+    }
+}
+    </style>
+</head>
+<body>
+  
+    <header>
+     
+        <nav class="navbar">
+    
+            <ul>
+                <div class="logos">
+                    <h2   style ="display:  inline-block;padding: 0px;"><img   src="logo.png" width="20px">Travel Guide</h2>
+                    
+                </div>
+            
+            <li><a href="contact us.html"> Contact us</a></li>      
+            <li><a href="AboutUs.html"> About</a></li>  
+            <li><a href="destinations.html"> Destinations</a></li>  
+            <li><a href="travel_blog.html"> Travel blog</a></li> 
+            <li><a href="index.html"> Home</a></li> 
+            </ul>
+            <main>
+                <video autoplay loop muted plays-inline class="back-video">
+                    <source src="vid.mp4" type="video/mp4">
+                </video> 
+                <div class="intro">
+                <h1 style="font-size: xx-large; text-align: center  ;text-decoration: solid ;"><b>Explore world<br> with us.</b> </h1>
+                <p style=" text-align: center;font-size: x-large;color: hsla(0, 0%, 0%, 0.973); "> This is a travel blog about beautifull<br> hidden destinations around <br>world. </p>
+            </div>
+            <hr></hr>
+            <h1 style="font-size: xx-large; text-align: center  ;text-decoration: solid ;"><b>Real life quotes.<br>Travel guide</b> </h1>
+            <p style=" text-align: center;font-size: x-large;color: hsla(0, 0%, 0%, 0.973); "> “Not all those who wander are lost.” — J.R.R. Tolkien<br>“The journey not the arrival matters.” — T.S. Eliot <br>“Travel is the only thing you buy that makes you richer.” — Anonymous<br>“To travel is to live.” — Hans Christian Andersen<br>“The world is a book, and those who do not travel read only one page.” — Saint Augustine<br>“Adventure is worthwhile.” — Aesop<br>The journey itself is my home.” — Matsuo Bashō<br> “Travel brings power and love back into your life.” — Rumi</p>
+            <div  class="destination" style="text-align: center;">
+                <img class="img1" src="destination.png" width="500px" height="350px">
+                <a href="destinations.html"> Destinations</a>
+            </div>
+            <div class="about-us " style="text-align: center;">
+                <img class="img1" src="about.png" width="500px" height="300px" ><br>
+                <a href="AboutUs.html"> About us</a>
+       </div>
+        <div class="contact-us" style="text-align: center;">
+        <img class="img1" src="contact us.png" width="500px" height="350px">
+        <a href="contact us.html"> Contact us</a>
+    </div>
+    <div class="Travel-log" style="text-align: center;">
+        <img class="img1" src="Travelblog.png" width="500px" height="350px">
+        <a href="travel_blog.html"> Travel blog</a>
+    </div>
+            </main>
+
+                
+            </section>
+        </nav>
+
+    </header>
+   
+    <footer>
+<div class="row">
+    <div class="col">
+        <img src="logo.png" class="logo">
+        <p>Thank you for visting our website.</p>
+    </div>
+    <div class="col">
+        <h3>Office <div class="underline"><span></span></div></h3>
+        <p> Canal road</p>
+        <p> Seven,heihgts</p>
+        <p> Lahore,Pakistan</p>
+        <p class="email-id">travelguide@gmail.com</p>
+        <h4>+92-123456789</h4>
+    </div>
+    <div class="col">
+        <h3>Links <div class="underline"><span></span></div></h3>
+        <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="destinations.html">Destinstions</a></li>
+        <li><a href="travel_blog.html">Travel blogs</a></li>
+        <li><a href="AboutUs.html">About us</a></li>
+        <li><a href="contact us.html">Contact us</a></li>
+    </ul>
+    </div>
+    <div class="col">
+        <h3>Newsletter <div class="underline"><span></span></div></h3>  
+     <form>
+        <i class="fa-solid fa-envelope"></i>
+        <input type="email" placeholder="Enter your email  id" required>
+        <button type="submit"><i class="fa-light fa-right"></i></button>
+        </form>
+        <div class="social-icons">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-whatsapp"></i>
+            <i class="fa-brands fa-instagram"></i>
+    
+        </div>  
+    </div>
+</div>
+  <hr> 
+    <p class="copyright">Travel guide © 2024 - All right reserved.</p>
+    </hr>
+    </footer>
+
+
+</html>

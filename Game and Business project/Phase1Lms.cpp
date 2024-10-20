@@ -3,21 +3,20 @@
 void gotoxy(int x, int y);
 void printname();
 void printWelcomeArt();
-int option(int );
+void login();
 int user(int a);
 int admin(int);
 using namespace std;
-    string name1;
-    int password2;
+    string name1,name2;
+    int password2,password1;
     double books1; 
-
+string bookss;
 main()
 {
 
 printname();  
 printWelcomeArt();
- int a;
- option( a);
+ login();
 }
 void printname()
  { 
@@ -48,57 +47,103 @@ void gotoxy(int x, int y)
  coordinates.Y = y;
  SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coordinates);
 }
-
-int option(int option1)
-{    
-    gotoxy(0,13  );
-    cout<<"Book reader option 1:\n";
-    cout<<"Admin option 2:\n";
-    cout<<"Book seller  option 3:\n";
-    cout<<"For exit press 0...\n";
+void login()
+{ gotoxy(20,16  );
+  cout<<"Enter your type (user/admin):";
+  string type;
+  cin>>type;
+  if(type=="Admin"||type=="admin")
+  {
+    cout<<"Enter your name";
+    cin>>name2;
+    cout<<"Enter your password";
+    cin>>password1;
+    system("cls");
+    printname();
+    int option1;
+    system("cls");
+     printWelcomeArt();
+      gotoxy(10,15  );
+    cout<<"Admin option 0:";
+     gotoxy(10,16  );
+     cout<<"For exit press 1...";
+      gotoxy(10,17  );
     cout<<"Your option.... ";
     cin>>option1;
     int a=option1;
-    if(a==2)
+    if(a==0)
     {
      admin(a);   
     }
-    if(a==1)
-    {  
-         user(a);
-    }
-    if(option1==0)
-    {   
+   else 
+   if(option1==1)
+      {
         system("cls");
-        system("exit()");
+        printname();  
+        printWelcomeArt();
+        login();
+      }
+  } else
+   if (type=="User"||type=="user")
+  { system("cls");
+    printname();
+    gotoxy(20,16  );
+    cout<<"    Login   \n";
+    cout<<"Enter your name:";
+    cin>>name1;
+    cout<<"Enter your password:";
+    cin>>password2;
+    system("cls");
+    printname();
+    int option1;
+    gotoxy(0,16  );
+    cout<<"User option 0:";
+    gotoxy(0,17  );
+     cout<<"For exit press 1...:";
+     gotoxy(0,18  );
+    cout<<"Your option.... ";
+    cin>>option1;
+    int a=option1;
+        if(a==0)
+    {
+     user(a);   
     }
-    
+     else if(option1==1)
+      {
+        system("cls");
+        printname();  
+        printWelcomeArt();
+        login();
+      }
+  
+  }else 
+  {
+    cout<<"Invalid";
+  }
+  
 }
+
 int admin(int a)
 {
-    string name;
-    int password;
- 
- if(a==2)
-   {
-    cout<<"    Login   \n";
-    cout<<"Enter your name.";
-    cin>>name;
-    cout<<"Enter your password.";
-    cin>>password;
-    if(password==123456)
+   
+    if(a==0)
     { 
       int option1;
-      cout<<"Admin details option 1 \n";
-      cout<<"User details option 2\n";
+      system("cls");
+       printWelcomeArt();
+       gotoxy(0,15  );
+      cout<<"Admin details option 1 ";
+      gotoxy(0,16  );
+      cout<<"User details option 2";
+      gotoxy(0,17  );
       cout<<" Your option.... ";
       cin>>option1;
       if(option1==2)
       {
         int priceperbook=200;
         int total=priceperbook*books1;
-     cout<< "User name:\t"<<"\tPassword: \t"<<"\tBooks details:\t"<<"\tPrice per book\t"<<"\tTotal price\t"<<endl;
-     cout<<name1<<"\t\t\t"<<password2<<"\t\t\t"<<books1<<"\t\t\t"<<priceperbook<<"\t\t\t"<<total<<endl;
+     cout<< "User name:\t"<<"\tBooks details:\t"<<"\tPrice per book\t"<<"\tTotal price\t"<<"\t Books names\t"<<endl;
+     cout<<name1<<"\t\t\t"<<books1<<"\t\t\t"<<priceperbook<<"\t\t\t"<<total<<"\t\t\t"<<bookss<<endl;
      int exit;
      cout<<"For exit press 1:";
      cin>>exit;
@@ -107,12 +152,12 @@ int admin(int a)
         system("cls");
         printname();  
         printWelcomeArt();
-        option(a);
+        login();
       }
       }
       if(option1==1)
       {
-        cout<<"Admin name:\t"<<name<<"\t Password:\t"<<password<<endl;
+        cout<<"Admin name:\t"<<name2<<"\t Password:\t"<<password1<<endl;
         int exit;
      cout<<"For exit press 1:";
          cin>>exit;
@@ -121,7 +166,7 @@ int admin(int a)
         system("cls");
          printname();  
         printWelcomeArt();
-        option(a);
+        login();
       }
       }
     
@@ -131,21 +176,24 @@ int admin(int a)
     }
    }
      
-}
+
 int user(int a)
 {
    
-    if(a==1) 
-    { 
-    cout<<"    Login   \n";
-    cout<<"Enter your name:";
-    cin>>name1;
-    cout<<"Enter your password:";
-    cin>>password2;
+            system("cls");
+         printname();  
+        printWelcomeArt();
+        gotoxy(0,15  );
+        cout<<"Available books\nRise_of_nations\nLife_after_death\nYou_and_me\nLast_ride\nFirst_love "; 
+     gotoxy(0,22  );
     cout<<"Enter books you want to read or want to borrow :";
     cin>>books1;
-    }
+    gotoxy(0,23  );
+    cout<<"Enter the books name in horizontal:";   
+    cin>>bookss;
+   
     int exit;
+     gotoxy(0,24  );
     cout<<"For exit press 1:";
     cin>>exit;
     if(exit==1)
@@ -153,6 +201,6 @@ int user(int a)
         system("cls");
          printname();  
         printWelcomeArt();
-        option(a);
+        login();
     }
 }
