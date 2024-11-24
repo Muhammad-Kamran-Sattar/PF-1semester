@@ -180,12 +180,12 @@ int admin(int a)
 int user(int a)
 {
    
-            system("cls");
-         printname();  
-        printWelcomeArt();
-        gotoxy(0,15  );
-        cout<<"Available books\nRise_of_nations\nLife_after_death\nYou_and_me\nLast_ride\nFirst_love "; 
-     gotoxy(0,22  );
+   system("cls");
+   
+    printWelcomeArt();
+    gotoxy(0,15  );
+    cout<<"Available books\nRise_of_nations\nLife_after_death\nYou_and_me\nLast_ride\nFirst_love "; 
+    gotoxy(0,22  );
     cout<<"Enter books you want to read or want to borrow :";
     cin>>books1;
     gotoxy(0,23  );
